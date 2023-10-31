@@ -1,6 +1,11 @@
 # Base image
 FROM ubuntu:22.04
 
+LABEL \
+    name="CISO360AI" \
+    author="CISO360AI <office@CISO360.AI>" \
+    description="Your All-round Cyber-Intelligent Sidekick"
+
 # Environment Variables
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -62,7 +67,6 @@ RUN \
   ; fi
 
 # Download and install specific ARM versions
-https://github.com/cybertec-postgresql/pg_timetable/releases/download/v5.6.0/pg_timetable_Linux_arm64.tar.gz
 RUN \
   if [ "$TARGETPLATFORM" = 'linux/arm64' ]; then \
     wget https://github.com/cybertec-postgresql/pg_timetable/releases/download/v${pg_timetable_ver}/pg_timetable_Linux_arm64.tar.gz \
