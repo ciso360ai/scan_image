@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV TLDEXTRACT_CACHE="/root/tldextract.cache"
-ENV pg_timetable_ver="5.5.0"
+ENV pg_timetable_ver="5.6.0"
 ENV go_ver="1.21.3"
 
 ARG TARGETARCH
@@ -51,10 +51,10 @@ RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list \
 # Download and install specific Intel versions
 RUN \
   if [ "$TARGETPLATFORM" = 'linux/amd64' ]; then \
-    wget https://github.com/cybertec-postgresql/pg_timetable/releases/download/v${pg_timetable_ver}/pg_timetable_${pg_timetable_ver}_Linux_x86_64.tar.gz \
-    && tar -xvf pg_timetable_${pg_timetable_ver}_Linux_x86_64.tar.gz \
-    && mv pg_timetable_${pg_timetable_ver}_Linux_x86_64/pg_timetable /usr/bin \
-    && rm -rf pg_timetable_${pg_timetable_ver}_Linux_x86_64* \
+    wget https://github.com/cybertec-postgresql/pg_timetable/releases/download/v${pg_timetable_ver}/pg_timetable_Linux_x86_64.tar.gz \
+    && tar -xvf pg_timetable_Linux_x86_64.tar.gz \
+    && mv pg_timetable_Linux_x86_64/pg_timetable /usr/bin \
+    && rm -rf pg_timetable_Linux_x86_64* \
     && wget https://go.dev/dl/go${go_ver}.linux-amd64.tar.gz \
     && rm -rf /usr/local/go \
     && tar -C /usr/local -xzf go${go_ver}.linux-amd64.tar.gz \
@@ -62,12 +62,13 @@ RUN \
   ; fi
 
 # Download and install specific ARM versions
+https://github.com/cybertec-postgresql/pg_timetable/releases/download/v5.6.0/pg_timetable_Linux_arm64.tar.gz
 RUN \
   if [ "$TARGETPLATFORM" = 'linux/arm64' ]; then \
-    wget https://github.com/cybertec-postgresql/pg_timetable/releases/download/v${pg_timetable_ver}/pg_timetable_${pg_timetable_ver}_Linux_arm64.tar.gz \
-    && tar -xvf pg_timetable_${pg_timetable_ver}_Linux_arm64.tar.gz \
-    && mv pg_timetable_${pg_timetable_ver}_Linux_arm64/pg_timetable /usr/bin \
-    && rm -rf pg_timetable_${pg_timetable_ver}_Linux_arm64* \
+    wget https://github.com/cybertec-postgresql/pg_timetable/releases/download/v${pg_timetable_ver}/pg_timetable_Linux_arm64.tar.gz \
+    && tar -xvf pg_timetable_Linux_arm64.tar.gz \
+    && mv pg_timetable_Linux_arm64/pg_timetable /usr/bin \
+    && rm -rf pg_timetable_Linux_arm64* \
     && wget https://go.dev/dl/go${go_ver}.linux-arm64.tar.gz \
     && rm -rf /usr/local/go \
     && tar -C /usr/local -xzf go${go_ver}.linux-arm64.tar.gz \
