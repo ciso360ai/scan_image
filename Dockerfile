@@ -90,3 +90,9 @@ RUN python3 -m pip install --upgrade pip \
 
 # Download Go packages
 RUN GOARCH=${TARGETARCH} go install github.com/tomnomnom/anew@latest
+RUN GOARCH=${TARGETARCH} go install github.com/owasp-amass/amass/v3/...@master
+RUN GOARCH=${TARGETARCH} go install github.com/tomnomnom/assetfinder@latest
+RUN GOARCH=${TARGETARCH} go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest 
+RUN GOARCH=${TARGETARCH} go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+RUN GOARCH=${TARGETARCH} go install github.com/projectdiscovery/httpx/cmd/httpx@latest
+RUN GOARCH=${TARGETARCH} go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
