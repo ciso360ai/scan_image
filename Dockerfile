@@ -91,7 +91,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 RUN python3 -m pip install --upgrade pip \
-    && pip3 install --no-cache-dir psycopg2-binary tldextract
+    && pip3 install --no-cache-dir --break-system-packages psycopg2-binary tldextract
 
 # Download Go packages
 RUN GOARCH=${TARGETARCH} go install github.com/tomnomnom/anew@latest
