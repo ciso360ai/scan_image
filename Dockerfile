@@ -13,6 +13,7 @@ ENV PYTHONUNBUFFERED 1
 ENV TLDEXTRACT_CACHE="/root/tldextract.cache"
 ENV pg_timetable_ver="5.9.0"
 ENV go_ver="1.21.3"
+ENV TZ=Etc/UTC
 
 ARG TARGETARCH
 ARG TARGETPLATFORM
@@ -90,8 +91,7 @@ WORKDIR /tools
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN python3 -m pip install --upgrade pip \
-    && pip3 install --no-cache-dir --break-system-packages psycopg2-binary tldextract
+RUN pip3 install --no-cache-dir --break-system-packages psycopg2-binary tldextract
 
 # Download Go packages
 RUN GOARCH=${TARGETARCH} go install github.com/tomnomnom/anew@latest
