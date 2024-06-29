@@ -43,7 +43,7 @@ RUN apt update -y && apt install -y --no-install-recommends \
     python3-dev \
     python3-pip \
     python3-netaddr \
-    postgresql-client-common \
+    postgresql-client-16 \
     wget \
     whois \
     x11-utils \
