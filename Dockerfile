@@ -8,8 +8,8 @@ LABEL \
 
 # Environment Variables
 ENV DEBIAN_FRONTEND="noninteractive"
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 ENV TLDEXTRACT_CACHE="/root/tldextract.cache"
 ENV pg_timetable_ver="5.9.0"
 ENV go_ver="1.21.3"
@@ -89,8 +89,8 @@ ENV PATH="${PATH}:${GOROOT}/bin:${GOPATH}/bin"
 WORKDIR /tools
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 RUN pip3 install --no-cache-dir --break-system-packages psycopg2-binary tldextract
 
