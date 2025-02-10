@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV TLDEXTRACT_CACHE="/root/tldextract.cache"
-ENV pg_timetable_ver="5.10.0"
+ENV pg_timetable_ver="5.11.0"
 ENV go_ver="1.21.3"
 ENV TZ=Etc/UTC
 
