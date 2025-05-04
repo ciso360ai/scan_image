@@ -14,6 +14,7 @@ ENV TLDEXTRACT_CACHE="/root/tldextract.cache"
 ENV pg_timetable_ver="5.11.0"
 ENV go_ver="1.22.11"
 ENV TZ=Etc/UTC
+ENV TIMEOUT_SHORT=270
 
 ARG TARGETARCH
 ARG TARGETPLATFORM
